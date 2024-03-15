@@ -8,8 +8,16 @@
 
   <ItemGroup>
     <None Remove="Entities\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Interfaces\Repositories\" />
+    <None Remove="Model\" />
+    <None Remove="Model\Settings\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\Repositories\" />
+    <Folder Include="Model\" />
+    <Folder Include="Model\Settings\" />
   </ItemGroup>
 </Project>

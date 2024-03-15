@@ -1,0 +1,36 @@
+﻿version: "3.9"
+services:
+  mssql:
+    container_name: mssql
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    volumes:
+      - mssql-data:/var/opt/mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Pass@135!"
+    ports:
+      - 1433:1433
+    networks:
+      - todo-dotnet
+
+  # sqlcmd:
+  #   container_name: sqlcmd
+  #   image: mcr.microsoft.com/mssql-tools:latest
+  #   platform: linux/amd64
+  #   command: bash -c "
+  #     chmod u+x /opt/mssql_scripts/run-initialization.sh
+  #     && /opt/mssql_scripts/run-initialization.sh"
+  #   stdin_open: true
+  #   volumes:
+  #     - ./migration:/opt/mssql_scripts
+  #   networks:
+  #     - todo-dotnet
+  #   depends_on:
+  #     - mssql
+
+volumes:
+  mssql-data:
+
+networks:
+  todo-dotnet:
+    name: todo-dotnet
