@@ -8,6 +8,8 @@ public class Item : BaseEntity
     public DateTime? Due { get; protected set; }
     public bool Done { get; protected set; }
 
+    protected Item() { }
+
     public Item(string title, string description, DateTime? due)
     {
         Title = title;

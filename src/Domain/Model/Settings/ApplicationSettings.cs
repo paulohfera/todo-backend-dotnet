@@ -1,13 +1,13 @@
 ﻿using System;
 namespace Domain.Model.Settings
 {
-    public class ApplicationSettings
+    public sealed class ApplicationSettings
     {
-        public MssqlSettings Mssql { get; }
+        public MssqlSettings Mssql { get; set; }
     }
 
-    public struct MssqlSettings
+    public sealed class MssqlSettings
     {
-        public string ConnectionString { get; }
+        public string ConnectionString { get; set; }
     }
 }

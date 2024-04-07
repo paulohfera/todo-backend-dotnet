@@ -14,7 +14,7 @@ namespace Data.Repositories
             _context = context;
         }
 
-        public async void Add(Item item)
+        public async Task Add(Item item)
         {
             var sql = @"insert into item (title, description, due, done, createdat)
                 values (@title, @description, @due, false, GETDATE())";
@@ -43,9 +43,9 @@ namespace Data.Repositories
             return await connection.QueryFirstOrDefaultAsync<Item>(sql, new { id });
         }
 
-        public async Task<IEnumerable<Item>> List()
+        public async Task<IEnumerable<Item>?> List()
         {
-            var sql = "select * from item where done = false";
+            var sql = "select * from item where done = 0";
             using var connection = _context.CreateConnection();
             return await connection.QueryAsync<Item>(sql);
         }

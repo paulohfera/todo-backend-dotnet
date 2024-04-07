@@ -3,16 +3,21 @@ using Domain.Interfaces.Repositories;
 
 namespace Domain;
 
-public class TaskUseCases
+public class ItemUseCases
 {
     public IItemRepository _repository;
 
-    public TaskUseCases(IItemRepository repository)
+    public ItemUseCases(IItemRepository repository)
     {
         _repository = repository;
     }
 
-    public async Task<IEnumerable<Item>> List()
+    public async Task Add(Item item)
+    {
+        await _repository.Add(item);
+    }
+
+    public async Task<IEnumerable<Item>?> List()
     {
         return await _repository.List();
     }

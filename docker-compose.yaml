@@ -17,9 +17,9 @@ services:
   #   container_name: sqlcmd
   #   image: mcr.microsoft.com/mssql-tools:latest
   #   platform: linux/amd64
-  #   command: bash -c "
-  #     chmod u+x /opt/mssql_scripts/run-initialization.sh
-  #     && /opt/mssql_scripts/run-initialization.sh"
+    # command: bash -c "
+    #   chmod u+x /opt/mssql_scripts/run-initialization.sh
+    #   && /opt/mssql_scripts/run-initialization.sh"
   #   stdin_open: true
   #   volumes:
   #     - ./migration:/opt/mssql_scripts
@@ -30,6 +30,7 @@ services:
 
 volumes:
   mssql-data:
+  # migration:
 
 networks:
   todo-dotnet:
